@@ -9,6 +9,10 @@
 - `SKILL.md` 這個檔名寫死在安裝器與各家 harness 裡，不可改名。skill 內部的附屬檔（`template.sh`、`SKILL-MECHANICS.md` 等）也不可改名，內文有引用。
 - `add-skill` 用 `git clone --depth 1 --single-branch`，只抓 default branch。要讓變更可安裝，就得推上 `main`。
 
+`orig-skills/` 是上游的英文原版，留著供比對。安裝器掃不到它（只認 `skills` 與 `skill` 這兩個目錄名），
+但那是因為 `skills/` 一定找得到東西才輪不到遞迴 fallback。`skills/` 若哪天被清空，遞迴 fallback 就會
+把 `orig-skills/` 底下的 36 個 SKILL.md 全撈出來，所以 `skills/` 不能空著。
+
 增刪 skill 一律跑 `scripts/curate-skills.sh`，不要手動搬目錄或改 frontmatter。白名單寫在該腳本的 `KEEP` 陣列裡。
 
 ## 連帶要同步的地方
