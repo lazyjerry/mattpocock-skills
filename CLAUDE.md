@@ -1,25 +1,27 @@
-Skills are organized into bucket folders under `skills/`:
+這是 [mattpocock/skills](https://github.com/mattpocock/skills) 的繁體中文精選分支，用途是當作 `ai-global add-skill` 的安裝來源。
 
-- `engineering/`: daily code work
-- `productivity/`: daily non-code workflow tools
-- `misc/`: kept around but rarely used, not promoted
-- `in-progress/`: beta: public on purpose, feedback wanted, not shipped in the plugin
-- `deprecated/`: no longer used
+## skills/ 的形狀是被安裝器決定的
 
-Every skill in `engineering/` or `productivity/` (the **promoted** buckets) must have a reference in the top-level `README.md` and an entry in `.claude-plugin/plugin.json`'s `skills` array (the Claude Code plugin ships exactly the promoted set). Skills in `misc/`, `in-progress/`, and `deprecated/` must not appear in either.
+`ai-global` 的 `add-skill` 只掃 `skills/` **一層深**，找 `skills/<dir>/SKILL.md`。掃不到就會退而把 `skills/` 底下的**檔案**當成資源裝進去。所以：
 
-Install commands are copied verbatim from [.agents/install-block.md](./.agents/install-block.md). `.claude-plugin/marketplace.json` makes the repo its own single-plugin marketplace (a fallback the install block explains, not the documented route). Run `claude plugin validate . --strict` after touching either manifest. Why a Claude plugin but not (yet) a Codex one lives in [.agents/adr/0002-ship-as-a-claude-code-plugin.md](./.agents/adr/0002-ship-as-a-claude-code-plugin.md).
+- `skills/` 底下只能放 skill 目錄本身，不能有 bucket 分層。
+- 每個目錄名與其 `SKILL.md` frontmatter 的 `name:` 都必須是 `mattpocock-<原名>`。安裝後的目錄名取自 `name:`（`extract_meta_name`），不是資料夾名，兩邊不一致會裝出對不上的名字。
+- `SKILL.md` 這個檔名寫死在安裝器與各家 harness 裡，不可改名。skill 內部的附屬檔（`template.sh`、`SKILL-MECHANICS.md` 等）也不可改名，內文有引用。
+- `add-skill` 用 `git clone --depth 1 --single-branch`，只抓 default branch。要讓變更可安裝，就得推上 `main`。
 
-Each skill entry in the top-level `README.md` must link the skill name to its `SKILL.md`.
+增刪 skill 一律跑 `scripts/curate-skills.sh`，不要手動搬目錄或改 frontmatter。白名單寫在該腳本的 `KEEP` 陣列裡。
 
-Each bucket folder has a `README.md` that lists every skill in the bucket with a one-line description, with the skill name linked to its `SKILL.md`. The promoted buckets' `README.md`s and the top-level `README.md` group entries into **User-invoked** and **Model-invoked**; non-promoted bucket `README.md`s (`misc/`, `in-progress/`) use a flat list.
+## 連帶要同步的地方
 
-Skills in `engineering/` and `productivity/` also have a human-facing docs page at `docs/<bucket>/<skill-name>.md` (the docs tree mirrors those two bucket folders under `skills/`). The published URL is `https://aihero.dev/skills-<skill-name>` regardless of bucket: the docs path is repo organisation only. When you add, rename, or change the behaviour of a skill in `engineering/` or `productivity/`, create or re-sync its docs page following [.agents/writing-docs.md](./.agents/writing-docs.md). A finished page carries four sections: **What it does**, **When to reach for it**, **Common questions**, and **It's working if**. `writing-docs.md` holds the template, the section order, and where to hunt for the questions. Skills in the non-promoted buckets (`misc/`, `in-progress/`, `deprecated/`) get **no** docs page.
+- `.claude-plugin/plugin.json` 的 `skills` 陣列必須等於 `skills/` 的實際內容。改完跑 `claude plugin validate . --strict`。
+- 頂層 `README.md` 的技能列表，每個名稱連到自己的 `SKILL.md`，並依觸發方式分成「模型觸發」與「使用者觸發」。
+- `docs/` 底下保留對應的說明頁。
+- skill 之間若以名稱互相引用（例如 `mattpocock-tdd` 引用 `mattpocock-codebase-design`），改名時要一起改，`curate-skills.sh` 會處理「名稱」形式的引用。
 
-Every `SKILL.md` is either user-invoked (`disable-model-invocation: true` plus `policy.allow_implicit_invocation: false` in `agents/openai.yaml`, reachable only by the human) or model-invoked (model- or user-reachable). See [.agents/invocation.md](./.agents/invocation.md).
+## 其他
 
-[`ask-matt`](./skills/engineering/ask-matt/SKILL.md) is the router that maps every user-reachable skill and how they relate. The same trigger that re-syncs a docs page applies to it: whenever you add, rename, remove, or change how a user-reachable skill fits the flows, re-read `ask-matt`'s `SKILL.md` and update it so the map stays accurate: a new skill it never mentions, or a stale one it still routes to, is a router that lies.
+每份 `SKILL.md` 不是使用者觸發（`disable-model-invocation: true` 加上 `agents/openai.yaml` 的 `policy.allow_implicit_invocation: false`）就是模型觸發。見 [.agents/invocation.md](./.agents/invocation.md)。
 
-To (re)link every skill into the local harness skill directories (`~/.claude/skills`, `~/.agents/skills`), run `scripts/link-skills.sh`. Each entry is a symlink into this repo, so a `git pull` keeps installed skills current; re-run the script after adding, removing, or renaming a skill.
+`scripts/link-skills.sh` 把 `skills/` 底下每個 skill 以 symlink 掛進本機的 `~/.claude/skills` 與 `~/.agents/skills`，供開發時直接驗證，不經過 `ai-global`。
 
-No em-dashes anywhere in this repo's prose (`SKILL.md` files, docs, `README.md`, `CHANGELOG.md`, ADRs, changesets, code comments). Where a sentence reaches for one, rewrite it instead with a comma, colon, period, parentheses, or a conjunction, whichever the sentence actually wants; never do a blind character substitution.
+本 repo 的中文散文一律不使用破折號。句子想用破折號時，改用逗號、冒號、句號、括號或連接詞，看句子實際需要哪一種，不要做無腦字元替換。

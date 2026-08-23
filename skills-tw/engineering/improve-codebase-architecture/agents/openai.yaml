@@ -1,5 +1,0 @@
-interface:
-  display_name: "改善程式碼庫架構"
-  short_description: "尋找並深入檢視架構改善項目"
-policy:
-  allow_implicit_invocation: false

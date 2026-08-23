@@ -1,5 +1,0 @@
-interface:
-  display_name: "來場拷問"
-  short_description: "透過訪談打磨計畫"
-policy:
-  allow_implicit_invocation: false

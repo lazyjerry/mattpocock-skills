@@ -1,5 +1,0 @@
-interface:
-  display_name: "設定 Matt Pocock Skills"
-  short_description: "為此技能設定儲存庫"
-policy:
-  allow_implicit_invocation: false

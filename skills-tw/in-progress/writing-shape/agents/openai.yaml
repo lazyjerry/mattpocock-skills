@@ -1,5 +1,0 @@
-interface:
-  display_name: "寫作塑形"
-  short_description: "將原始素材塑造成一篇文章"
-policy:
-  allow_implicit_invocation: false

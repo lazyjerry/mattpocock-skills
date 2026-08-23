@@ -1,5 +1,0 @@
-interface:
-  display_name: "實作"
-  short_description: "根據規格或工單進行開發"
-policy:
-  allow_implicit_invocation: false

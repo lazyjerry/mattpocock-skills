@@ -1,5 +1,0 @@
-interface:
-  display_name: "教學"
-  short_description: "在引導式工作區中學習概念"
-policy:
-  allow_implicit_invocation: false
