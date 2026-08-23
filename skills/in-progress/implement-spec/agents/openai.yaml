@@ -1,0 +1,5 @@
+interface:
+  display_name: "實作規格"
+  short_description: "將整份規格實作為單一 PR"
+policy:
+  allow_implicit_invocation: false

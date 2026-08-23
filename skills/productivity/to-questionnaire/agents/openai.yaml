@@ -1,0 +1,5 @@
+interface:
+  display_name: "轉為問卷"
+  short_description: "預先將問題整理成文件，供他人回答"
+policy:
+  allow_implicit_invocation: false

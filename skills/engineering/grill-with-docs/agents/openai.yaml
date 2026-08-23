@@ -1,0 +1,5 @@
+interface:
+  display_name: "設計與撰寫文件"
+  short_description: "琢磨設計並撰寫其文件"
+policy:
+  allow_implicit_invocation: false

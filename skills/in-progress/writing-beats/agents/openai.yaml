@@ -1,0 +1,5 @@
+interface:
+  display_name: "寫作節奏"
+  short_description: "將原始素材組合成節奏段落"
+policy:
+  allow_implicit_invocation: false
