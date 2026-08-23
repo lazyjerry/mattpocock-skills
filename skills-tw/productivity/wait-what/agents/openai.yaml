@@ -1,0 +1,5 @@
+interface:
+  display_name: "等等，什麼"
+  short_description: "重新說明一次：更簡單，並補上我遺漏的脈絡"
+policy:
+  allow_implicit_invocation: false

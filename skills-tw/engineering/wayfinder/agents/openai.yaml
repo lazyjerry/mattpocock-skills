@@ -1,0 +1,5 @@
+interface:
+  display_name: "Wayfinder"
+  short_description: "將大型工作拆解為決策工單來規劃"
+policy:
+  allow_implicit_invocation: false

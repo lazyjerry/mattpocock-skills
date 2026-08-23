@@ -1,0 +1,5 @@
+interface:
+  display_name: "設定 TS 深層模組"
+  short_description: "強制執行深層 TypeScript 模組"
+policy:
+  allow_implicit_invocation: false

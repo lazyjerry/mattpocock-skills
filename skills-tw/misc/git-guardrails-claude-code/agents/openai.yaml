@@ -1,0 +1,3 @@
+interface:
+  display_name: "Claude Code Git 防護機制"
+  short_description: "封鎖危險的 git 指令"

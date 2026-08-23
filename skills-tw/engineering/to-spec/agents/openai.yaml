@@ -1,0 +1,5 @@
+interface:
+  display_name: "轉為規格"
+  short_description: "將對話轉換成規格"
+policy:
+  allow_implicit_invocation: false
