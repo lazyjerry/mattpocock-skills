@@ -46,7 +46,7 @@ const api = {
   createOrder: (data) => fetch('/orders', { method: 'POST', body: data }),
 };
 
-// 不好：mock 時需要在測試設定裡寫條件邏輯
+// 不好：mock 時需要在 mock 內部寫條件邏輯
 const api = {
   fetch: (endpoint, options) => fetch(endpoint, options),
 };

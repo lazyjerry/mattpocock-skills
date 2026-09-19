@@ -18,9 +18,9 @@ ADR 存放在 `docs/adr/` 目錄中，並使用連續編號：`0001-slug.md`、`
 
 只有在確實能帶來實質價值時才加入這些章節。大多數 ADR 都不需要。
 
-- **Status** frontmatter(`proposed | accepted | deprecated | superseded by ADR-NNNN`)：當決策可能會被重新檢視時很有用
-- **Considered Options**：只有在被否決的替代方案值得記錄時才加入
-- **Consequences**：只有在需要指出非顯而易見的後續影響時才加入
+- **狀態** frontmatter（`提議中 | 已接受 | 已棄用 | 已由 ADR-NNNN 取代`）：當決策可能會被重新檢視時很有用
+- **曾考慮的選項**：只有在被否決的替代方案值得記錄時才加入
+- **後果**：只有在需要指出非顯而易見的後續影響時才加入
 
 ## 編號規則
 

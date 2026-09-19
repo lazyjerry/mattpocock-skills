@@ -1,5 +1,5 @@
 interface:
-  display_name: "轉為工作票"
-  short_description: "將計畫拆分為可追蹤的最小驗證工作票"
+  display_name: "轉為工單"
+  short_description: "將計畫拆分為可追蹤的最小驗證工單"
 policy:
   allow_implicit_invocation: false
