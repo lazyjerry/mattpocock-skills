@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 務必加上 `-n`/`--name` 並搭配一個具描述性的名稱（例如 `--name "Fix login bug"`）；這會設定在工作清單、工作階段選擇器與終端機標題中顯示的名稱。
 
-在摘要中納入「建議技能」（suggested skills）小節，說明下一個代理應該為哪些技能呼叫 Skill 工具。
+在摘要中納入「建議技能」（suggested skills）小節，建議該代理應該呼叫哪些技能。
 
 不要重複其他文件已經記錄的內容（規格、計畫、架構決策紀錄、issue、commit、diff）。改用路徑或 URL 來參照它們即可。
 

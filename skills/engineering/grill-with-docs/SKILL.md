@@ -4,4 +4,4 @@ description: 一種毫不留情的訪談方式，用來把計畫或設計磨得�
 disable-model-invocation: true
 ---
 
-呼叫 Skill 工具兩次，分別對應「grilling」與「domain-modeling」。
+進行一場 `/grilling` 會談，並搭配 `/domain-modeling` 技能。

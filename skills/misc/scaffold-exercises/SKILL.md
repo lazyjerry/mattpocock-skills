@@ -1,6 +1,6 @@
 ---
 name: scaffold-exercises
-description: 建立包含各小節、練習題、解答與說明檔的練習題目錄結構，並通過檢查。適用於使用者想要建立練習題架構、建立練習題範本，或設定新課程小節的情境。
+description: 建立包含各小節、練習題、解答與說明檔的練習題目錄結構，並通過檢查。適用於使用者想要建立練習題架構、建立練習題 stub，或設定新課程小節的情境。
 ---
 
 # Scaffold Exercises
@@ -22,7 +22,7 @@ description: 建立包含各小節、練習題、解答與說明檔的練習題�
 - `solution/` - 參考解答實作
 - `explainer/` - 概念說明內容，不含 TODO
 
-在建立範本時，除非計畫另有指定，否則預設使用 `explainer/`。
+在建立 stub 時，除非計畫另有指定，否則預設使用 `explainer/`。
 
 ## 必要檔案
 
@@ -31,21 +31,21 @@ description: 建立包含各小節、練習題、解答與說明檔的練習題�
 - **內容不得為空**（需有實際內容，即使只有一行標題也可以）
 - 不含失效連結
 
-在建立範本時，請建立一份包含標題與說明的簡易 readme：
+在建立 stub 時，請建立一份包含標題與說明的簡易 readme：
 
 ```md
-# Exercise Title
+# 練習標題
 
-Description here
+在這裡寫說明
 ```
 
-如果子資料夾中含有程式碼，則還需要一個 `main.ts`（超過 1 行）。但對於範本而言，只有 readme 也是可以接受的。
+如果子資料夾中含有程式碼，則還需要一個 `main.ts`（超過 1 行）。但對於 stub 而言，只有 readme 也是可以接受的。
 
 ## 工作流程
 
 1. **解析計畫內容** - 擷取小節名稱、練習題名稱與變體類型
 2. **建立目錄** - 為每個路徑執行 `mkdir -p`
-3. **建立 readme 範本** - 每個變體資料夾各建立一份含標題的 `readme.md`
+3. **建立 readme stub** - 每個變體資料夾各建立一份含標題的 `readme.md`
 4. **執行檢查** - 執行 `pnpm ai-hero-cli internal lint` 進行驗證
 5. **修正錯誤** - 反覆修正直到檢查通過為止
 
@@ -76,7 +76,7 @@ Description here
 git mv exercises/01-retrieval/01.03-embeddings exercises/01-retrieval/01.04-embeddings
 ```
 
-## 範例：依計畫建立練習題範本
+## 範例：依計畫建立練習題 stub
 
 假設計畫內容如下：
 
@@ -95,7 +95,7 @@ mkdir -p exercises/05-memory-skill-building/05.02-short-term-memory/{explainer,p
 mkdir -p exercises/05-memory-skill-building/05.03-long-term-memory/explainer
 ```
 
-接著建立 readme 範本：
+接著建立 readme stub：
 
 ```
 exercises/05-memory-skill-building/05.01-introduction-to-memory/explainer/readme.md -> "# Introduction to Memory"

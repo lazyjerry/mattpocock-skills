@@ -13,9 +13,9 @@ description: 將測試檔案從 `as` 型別斷言遷移到 @total-typescript/sho
 
 測試中使用 `as` 的問題：
 
-- 養成不好的習慣，不用它反而更好
+- 我們早已被訓練成不要用它
 - 必須手動指定目標型別
-- 雙重 as(`as unknown as Type`)用於刻意傳入錯誤資料時
+- 雙重 as（`as unknown as Type`）用於刻意傳入錯誤資料時
 
 ## 安裝
 
@@ -99,8 +99,8 @@ getUser(fromAny({ body: { id: 123 } }));
 | 函式             | 使用情境                                   |
 | ---------------- | ------------------------------------------ |
 | `fromPartial()`  | 傳入仍能通過型別檢查的部分資料              |
-| `fromAny()`      | 刻意傳入錯誤的資料(同時保留自動完成功能）  |
-| `fromExact()`    | 強制要求完整物件(之後可換回 fromPartial）  |
+| `fromAny()`      | 刻意傳入錯誤的資料（同時保留自動完成功能） |
+| `fromExact()`    | 強制要求完整物件（之後可換回 fromPartial） |
 
 ## 工作流程
 
@@ -109,7 +109,7 @@ getUser(fromAny({ body: { id: 123 } }));
    - 他們是否在處理只有部分屬性重要的大型物件？
    - 他們是否需要為了錯誤測試而傳入刻意錯誤的資料？
 
-2. **安裝並遷移**:
+2. **安裝並遷移**：
    - [ ] 安裝：`npm i @total-typescript/shoehorn`
    - [ ] 找出含有 `as` 斷言的測試檔案：`grep -r " as [A-Z]" --include="*.test.ts" --include="*.spec.ts"`
    - [ ] 將 `as Type` 替換為 `fromPartial()`

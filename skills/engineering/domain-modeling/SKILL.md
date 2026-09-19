@@ -1,6 +1,6 @@
 ---
 name: domain-modeling
-description: 建立並持續打磨專案的領域模型（domain model）。適用於討論程式碼庫術語、撰寫或編輯 CONTEXT.md，或記錄、編輯 ADR 時。
+description: 建立並持續打磨專案的領域模型（domain model）。適用於使用者想要確立領域術語或通用語言（ubiquitous language）、記錄架構決策，或其他技能需要維護領域模型時。
 ---
 
 # Domain Modeling（領域模型）
@@ -9,7 +9,7 @@ description: 建立並持續打磨專案的領域模型（domain model）。適�
 
 ## 檔案結構
 
-大多數 repo 只有單一個 context：
+大多數儲存庫只有單一個 context：
 
 ```
 /
@@ -21,7 +21,7 @@ description: 建立並持續打磨專案的領域模型（domain model）。適�
 └── src/
 ```
 
-如果根目錄存在 `CONTEXT-MAP.md`，代表這個 repo 有多個 context。這份地圖會指出每一個 context 所在的位置：
+如果根目錄存在 `CONTEXT-MAP.md`，代表這個儲存庫有多個 context。這份地圖會指出每一個 context 所在的位置：
 
 ```
 /

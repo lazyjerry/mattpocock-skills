@@ -11,15 +11,15 @@
 
 **Order**:
 {對這個詞的一到兩句話說明}
-_避免使用_: Purchase, transaction
+_避免使用_：Purchase, transaction
 
 **Invoice**:
 在出貨後寄給客戶、要求付款的請款單。
-_避免使用_: Bill, payment request
+_避免使用_：Bill, payment request
 
 **Customer**:
 下訂單的個人或組織。
-_避免使用_: Client, buyer, account
+_避免使用_：Client, buyer, account
 ```
 
 ## 規則

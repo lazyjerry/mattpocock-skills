@@ -1,18 +1,18 @@
-# Domain Docs（領域文件）
+# 領域文件
 
-工程技能在探索程式碼庫時，該如何運用這個 repo 的領域文件。
+工程技能在探索程式碼庫時，該如何運用這個儲存庫的領域文件。
 
 ## 探索前，請先閱讀這些
 
-- **`CONTEXT.md`**：位於 repo 根目錄，或
-- **`CONTEXT-MAP.md`**：若存在於 repo 根目錄，它會指向各個 context 對應的 `CONTEXT.md`。請閱讀與主題相關的每一份。
-- **`docs/adr/`**：閱讀與你即將動手的區域有關的 ADR。在多 context 的 repo 中，也要檢查 `src/<context>/docs/adr/` 是否有該 context 專屬的決策文件。
+- **`CONTEXT.md`**：位於儲存庫根目錄，或
+- **`CONTEXT-MAP.md`**：若存在於儲存庫根目錄，它會指向各個情境對應的 `CONTEXT.md`。請閱讀與主題相關的每一份。
+- **`docs/adr/`**：閱讀與你即將動手的區域有關的 ADR。在多重情境的儲存庫中，也要檢查 `src/<context>/docs/adr/` 是否有該情境專屬的決策文件。
 
-如果上述檔案不存在，**請靜默略過**。不需要特別指出它們不存在，也不必主動建議先建立它們。`/domain-modeling` 技能（透過 `/grill-with-docs` 與 `/improve-codebase-architecture` 觸發）會在術語或決策真正確定時，才延遲建立這些檔案。
+如果上述任一檔案不存在，**請靜默略過**。不需要特別指出它們不存在，也不必主動建議先建立它們。`/domain-modeling` 技能（透過 `/grill-with-docs` 與 `/improve-codebase-architecture` 觸發）會在術語或決策真正確定時，才延遲建立這些檔案。
 
 ## 檔案結構
 
-單一 context 的 repo（大多數情況）：
+單一情境的儲存庫（大多數情況）：
 
 ```
 /
@@ -23,7 +23,7 @@
 └── src/
 ```
 
-多 context 的 repo（根目錄存在 `CONTEXT-MAP.md`）：
+多重情境的儲存庫（根目錄存在 `CONTEXT-MAP.md`）：
 
 ```
 /
@@ -32,7 +32,7 @@
 └── src/
     ├── ordering/
     │   ├── CONTEXT.md
-    │   └── docs/adr/                  ← context 專屬的決策
+    │   └── docs/adr/                  ← 情境專屬的決策
     └── billing/
         ├── CONTEXT.md
         └── docs/adr/
