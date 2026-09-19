@@ -21,7 +21,7 @@ disable-model-invocation: true
 檢視目前的儲存庫，了解其初始狀態。閱讀既有的內容；不要憑空假設：
 
 - `git remote -v` 與 `.git/config`：這是 GitHub 儲存庫嗎？是哪一個？
-- 儲存庫根目錄下的 `AGENTS.md` 與 `CLAUDE.md`：兩者是否存在其一？其中是否已經有 `## 代理技能` 區塊？
+- 儲存庫根目錄下的 `AGENTS.md` 與 `CLAUDE.md`：兩者是否存在其一？其中是否已經有 `## Agent skills` 區塊？
 - 儲存庫根目錄下的 `CONTEXT.md` 與 `CONTEXT-MAP.md`
 - `docs/adr/` 以及任何 `src/*/docs/adr/` 目錄
 - `docs/agents/`：這個技能先前的輸出是否已經存在？
@@ -64,7 +64,7 @@ disable-model-invocation: true
 
 向使用者展示以下內容的草稿：
 
-- 要加入 `CLAUDE.md` 或 `AGENTS.md`（視第 4 步的選擇規則而定，決定要編輯哪一個）的 `## 代理技能` 區塊
+- 要加入 `CLAUDE.md` 或 `AGENTS.md`（視第 4 步的選擇規則而定，決定要編輯哪一個）的 `## Agent skills` 區塊
 - `docs/agents/issue-tracker.md`、`docs/agents/domain.md` 與 `docs/agents/triage-labels.md` 的內容(最後一項僅在已安裝 `triage` 時提供)
 
 在寫入前讓使用者能夠編輯。
@@ -79,27 +79,27 @@ disable-model-invocation: true
 
 當 `CLAUDE.md` 已存在時，絕不建立 `AGENTS.md`（反之亦然）；永遠編輯既有的那一個。
 
-若所選檔案中已經有 `## 代理技能` 區塊，就地更新其內容，而非重複附加。不要覆寫使用者對周邊區段所做的編輯。
+若所選檔案中已經有 `## Agent skills` 區塊，就地更新其內容，而非重複附加。不要覆寫使用者對周邊區段所做的編輯。
 
 該區塊內容如下：
 
 ```markdown
-## 代理技能
+## Agent skills
 
-### 議題追蹤系統
+### Issue tracker
 
 [議題追蹤位置的一行摘要]。詳見 `docs/agents/issue-tracker.md`。
 
-### 分流標籤
+### Triage labels
 
 [標籤詞彙的一行摘要]。詳見 `docs/agents/triage-labels.md`。
 
-### 領域文件
+### Domain docs
 
 [版面配置的一行摘要：「single-context」或「multi-context」]。詳見 `docs/agents/domain.md`。
 ```
 
-只有在已安裝 `triage` 且 B 節有執行時，才納入 `### 分流標籤` 子區塊，並寫入 `docs/agents/triage-labels.md`。若未安裝，則兩者皆省略。
+只有在已安裝 `triage` 且 B 節有執行時，才納入 `### Triage labels` 子區塊，並寫入 `docs/agents/triage-labels.md`。若未安裝，則兩者皆省略。
 
 接著以此技能資料夾中的種子範本為起點，寫入文件檔案：
 
