@@ -1,5 +1,0 @@
-interface:
-  display_name: "分流"
-  short_description: "在分流角色間移動議題"
-policy:
-  allow_implicit_invocation: false

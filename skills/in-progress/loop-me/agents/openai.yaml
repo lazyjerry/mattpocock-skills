@@ -1,5 +1,0 @@
-interface:
-  display_name: "循環我"
-  short_description: "規劃你想建置的工作流程"
-policy:
-  allow_implicit_invocation: false

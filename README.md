@@ -52,7 +52,7 @@ claude plugins install mattpocock-skills
 npx skills@latest add mattpocock/skills
 ```
 
-挑你要的技能，以及要裝到哪些 coding agent 上。**安裝程式會讓你選擇要拿哪些技能，記得把 `setup-matt-pocock-skills` 選進去。**
+挑你要的技能，以及要裝到哪些 coding agent 上。
 
 原生的 Codex plugin 已在規劃中（見 [`.agents/adr/0002-ship-as-a-claude-code-plugin.md`](./.agents/adr/0002-ship-as-a-claude-code-plugin.md)）。
 
@@ -71,15 +71,7 @@ npx skills@latest add mattpocock/skills
 
 </details>
 
-### 2. 執行 `/setup-matt-pocock-skills`
-
-在你的代理裡，每個儲存庫執行一次。它會：
-
-- 問你想用哪一種議題追蹤系統（GitHub、Linear，或本機檔案）
-- 問你分流工單時會套用哪些標籤（`/triage` 會用到標籤）
-- 問你想把我們建立的文件存到哪裡
-
-### 3. 搞定，可以開工了。
+### 2. 搞定，可以開工了。
 
 ## 為什麼會有這些技能
 
@@ -173,7 +165,7 @@ npx skills@latest add mattpocock/skills
 
 這內建在這些技能的每一層裡：
 
-- [`/to-spec`](./skills/engineering/to-spec/SKILL.md) 會在產出規格前，先問你這次動到哪些模組
+- [`/tdd`](./skills/engineering/tdd/SKILL.md) 只在事先議定的接縫上寫測試，接縫該放哪裡則用 [`/codebase-design`](./skills/engineering/codebase-design/SKILL.md) 的詞彙來討論
 
 而關鍵的是，[`/improve-codebase-architecture`](./skills/engineering/improve-codebase-architecture/SKILL.md) 會掃描程式碼庫、找出可以深化的機會，把候選項交到你手上。我建議每隔幾天就在你的程式碼庫上跑一次。它是一次盤點，不是搶救：在一個真正老舊的程式碼庫上，它會找到實際的候選項，但不會幫你把爛泥理乾淨。
 
@@ -191,25 +183,17 @@ npx skills@latest add mattpocock/skills
 
 **使用者觸發**
 
-- **[ask-matt](./skills/engineering/ask-matt/SKILL.md)**：問哪一個技能或流程適合你的狀況。這個儲存庫裡使用者觸發技能的路由器。
 - **[grill-with-docs](./skills/engineering/grill-with-docs/SKILL.md)**：拷問，同時建立專案的領域模型，磨利術語，並就地更新 `CONTEXT.md` 與 ADR。
-- **[triage](./skills/engineering/triage/SKILL.md)**：讓議題在分流角色的狀態機裡逐一推進。
 - **[improve-codebase-architecture](./skills/engineering/improve-codebase-architecture/SKILL.md)**：掃描程式碼庫尋找可深化的機會，以視覺化 HTML 報告呈現，然後針對你挑中的那一項進行拷問。
-- **[setup-matt-pocock-skills](./skills/engineering/setup-matt-pocock-skills/SKILL.md)**：為這個儲存庫設定工程技能所需的組態（議題追蹤系統、分流標籤、領域文件配置）。使用其他工程技能前，每個儲存庫執行一次。
-- **[to-spec](./skills/engineering/to-spec/SKILL.md)**：把目前的對話變成一份規格並發布到議題追蹤系統。不做訪談，只綜合你們已經討論過的內容。
-- **[to-tickets](./skills/engineering/to-tickets/SKILL.md)**：把任何計畫、規格或對話拆成一組曳光彈（tracer-bullet）工單，每張都宣告自己的阻擋關係邊，寫成本機檔案裡的文字，或真實追蹤系統上原生的阻擋連結。
-- **[implement](./skills/engineering/implement/SKILL.md)**：實作某份規格或某組工單描述的工作，在事先約定的接縫上驅動 `/tdd`，並在提交前以 `/code-review` 收尾。
-- **[wayfinder](./skills/engineering/wayfinder/SKILL.md)**：把一大塊超出單一代理 session 所能承載的工作，規劃成議題追蹤系統上一份共享的決策工單地圖，然後一次解決一張，直到通往目的地的路徑清晰為止。
 
 **模型觸發**
 
 - **[prototype](./skills/engineering/prototype/SKILL.md)**：做一個用完即丟的原型來回答某個設計問題，可以是回答狀態／邏輯問題的單一可分享 HTML 檔，或是同一路由下可切換的數個差異極大的 UI 變體。
 - **[diagnosing-bugs](./skills/engineering/diagnosing-bugs/SKILL.md)**：針對難纏 bug 與效能退化的有紀律診斷迴圈：建立一個會對這個 bug 亮紅燈的回饋迴圈 → 最小化 → 建立假設 → 加測點 → 修復 → 回歸測試。
-- **[research](./skills/engineering/research/SKILL.md)**：以高可信度的第一手資料來源調查問題，並把發現整理成儲存庫裡一份附引用的 Markdown 檔，以背景代理執行。
 - **[tdd](./skills/engineering/tdd/SKILL.md)**：以 red-green-refactor 迴圈進行的測試驅動開發。一次一個垂直切片地建功能或修 bug。
 - **[domain-modeling](./skills/engineering/domain-modeling/SKILL.md)**：主動建立並磨利專案的領域模型：拿詞彙表挑戰術語、用邊界情境壓力測試，並就地更新 `CONTEXT.md` 與 ADR。
 - **[codebase-design](./skills/engineering/codebase-design/SKILL.md)**：設計深層模組的共用紀律與詞彙：小介面背後藏著大量行為，放在乾淨的接縫上，並且能透過那個介面測試。
-- **[code-review](./skills/engineering/code-review/SKILL.md)**：對自某個固定點以來的差異做雙軸審查：**Standards**（是否遵循儲存庫的程式碼規範，外加 Fowler 的程式碼異味基準？）與 **Spec**（是否忠實實作了源頭的議題／規格？），以平行子代理執行，兩邊互不汙染。
+- **[spec-review](./skills/engineering/spec-review/SKILL.md)**：對自某個固定點以來的差異做雙軸審查：**Standards**（是否遵循儲存庫的程式碼規範，外加 Fowler 的程式碼異味基準？）與 **Spec**（是否忠實實作了源頭的議題／規格？），以平行子代理執行，兩邊互不汙染。
 - **[resolving-merge-conflicts](./skills/engineering/resolving-merge-conflicts/SKILL.md)**：一個 hunk 一個 hunk 地處理進行中的 git merge 或 rebase 衝突，依各方主要來源所追溯出的意圖來解決，然後把操作完成（絕不 `--abort`）。
 - **[wizard](./skills/engineering/wizard/SKILL.md)**：產生一支互動式 bash 精靈，帶著人類走完只有人類能做的步驟：佈建基礎設施、設定憑證或 CI secret、操作不熟悉的第三方後台，或執行一次性的遷移或切換。
 
@@ -227,5 +211,5 @@ npx skills@latest add mattpocock/skills
 
 **模型觸發**
 
-- **[grilling](./skills/productivity/grilling/SKILL.md)**：針對計畫、決策或想法不留情面地訪談使用者，直到設計樹的每一個分支都被解決。這是 `grill-me`、`grill-with-docs`、`triage`、`wayfinder` 與 `improve-codebase-architecture` 背後可重複使用的訪談原語。
+- **[grilling](./skills/productivity/grilling/SKILL.md)**：針對計畫、決策或想法不留情面地訪談使用者，直到設計樹的每一個分支都被解決。這是 `grill-me`、`grill-with-docs` 與 `improve-codebase-architecture` 背後可重複使用的訪談原語。
 - **[writing-for-agents](./skills/productivity/writing-for-agents/SKILL.md)**：為代理撰寫文件：技能、AGENTS.md／CLAUDE.md，以及任何代理會透過指標抵達的文件。

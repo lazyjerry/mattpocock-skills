@@ -1,5 +1,5 @@
 ---
-name: code-review
+name: spec-review
 description: "沿著兩個軸線，檢視自固定點（commit、分支、標籤或 merge-base）以來的變更：Standards（程式碼是否遵循此儲存庫記載的程式碼規範？）以及 Spec（程式碼是否符合原始 issue／spec 所要求的內容？）。以平行子代理分別執行兩項檢視，並將結果並列呈現。適用於使用者想要檢視某個分支、PR、進行中的變更，或要求「檢視自 X 以來的變更」時。"
 ---
 
@@ -9,8 +9,6 @@ description: "沿著兩個軸線，檢視自固定點（commit、分支、標籤
 - **Spec**：程式碼是否忠實實作了原始的 issue／spec？
 
 兩個軸線都以**平行子代理**執行，避免彼此的內容互相污染，接著本 skill 會彙整兩者的發現。
-
-議題追蹤系統應該已經提供給你了。若 `docs/agents/issue-tracker.md` 不存在，請執行 `/setup-matt-pocock-skills`。
 
 ## 流程
 
@@ -26,9 +24,9 @@ description: "沿著兩個軸線，檢視自固定點（commit、分支、標籤
 
 依照以下順序尋找原始 spec：
 
-1. commit 訊息中的 issue 參照（`#123`、`Closes #45`、GitLab `!67` 等），透過 `docs/agents/issue-tracker.md` 所述的流程取得。
+1. commit 訊息中的 issue 參照（`#123`、`Closes #45`、GitLab `!67` 等），用專案的議題追蹤工具取得（例如 `gh issue view`、`glab issue view`）。
 2. 使用者以參數傳入的路徑。
-3. `docs/`、`specs/` 或 `.scratch/` 底下，符合分支名稱或功能的 spec 檔案。
+3. `docs/`、`specs/`、`openspec/` 或 `.scratch/` 底下，符合分支名稱或功能的 spec 檔案。
 4. 若都找不到，詢問使用者 spec 在哪裡。若對方表示沒有 spec，**Spec** 子代理會跳過並回報「沒有可用的 spec」。
 
 ### 3. 找出 standards 來源
